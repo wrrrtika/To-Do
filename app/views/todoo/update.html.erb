@@ -1,8 +1,8 @@
-<h1>Add new items to your todo list</h1>
+<h1>Update this item</h1>
 
 <%= form_for @todo, :url => todoo_index_path(@todo) do |f| %>
     <%= f.label :name %><%= f.text_field :name %>
     <%= f.label :description %><%= f.text_field :description %>
     <%= f.hidden_field :done, :value => false %>
-        <%= f.submit "Add to to do list" %>
+        <%= f.submit "Update item" %>
 <% end %>

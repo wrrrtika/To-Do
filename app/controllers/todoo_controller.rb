@@ -9,7 +9,7 @@ class TodooController < ApplicationController
 	end
 
 	def todo_params
-		params.require(:todoo).permit(:name, :done)
+		params.require(:todoo).permit(:name, :description, :done)
 	end
 
 	def create
@@ -22,7 +22,7 @@ class TodooController < ApplicationController
 		end
 	end
 
-	def update
+	def edit
 		@todo = Todoo.find(params[:id])
 
 		if @todo.update_attribute(:done, true)
