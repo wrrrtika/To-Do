@@ -18,7 +18,17 @@ class TodooController < ApplicationController
 		if @todo.save
 			redirect_to todoo_index_path, :notice => "Your item was created"
 		else
-			redirect_to todoo_index_path, :notice => "please try again"
+			render "new"
+		end
+	end
+
+	def update
+		@todo = Todoo.find(params[:id])
+
+		if @todo.update_attribute(:done, true)
+			redirect_to todoo_index_path, :notice => "your item has been done"
+		else
+			render "edit"
 		end
 	end
 
