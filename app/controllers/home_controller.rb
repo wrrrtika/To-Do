@@ -5,4 +5,7 @@ class HomeController < ApplicationController
 			redirect_to :controller => 'todoo', :action => 'index'
 		end
 	end
+
+	
+	
 end

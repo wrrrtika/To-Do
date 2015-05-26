@@ -9,7 +9,7 @@ class TodooController < ApplicationController
 	end
 
 	def todo_params
-		params.require(:todoo).permit(:name, :description, :done)
+		params.require(:todoo).permit(:name, :done)
 	end
 
 	def create
@@ -28,8 +28,15 @@ class TodooController < ApplicationController
 		if @todo.update_attribute(:done, true)
 			redirect_to todoo_index_path, :notice => "your item has been done"
 		else
-			render "edit"
+			redirect_to todoo_index_path, :notice => "unable to edit item"
 		end
+	end
+
+	def destroy
+		@todo = Todoo.find(params[:id])
+		@todo.destroy
+
+		redirect_to todoo_index_path, :notice => "item destroyed"
 	end
 
 
