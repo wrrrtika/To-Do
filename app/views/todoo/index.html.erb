@@ -27,7 +27,7 @@
 	<strong><%= t.name %></strong><br>
 	<small><%= t.description %></small><br>
 	<small><%= link_to "Mark As Done", todoo_path(t), :method => :put %></small>
-	<small><%= link_to "Update Task", edit_todoo_path(t), :method => :get %></small>
+	<small><%= link_to "Update Task", todoo_path(t), :method => :patch %></small>
 </p>
 
 <% end %>

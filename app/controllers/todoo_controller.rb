@@ -22,7 +22,7 @@ class TodooController < ApplicationController
 		end
 	end
 
-	def edit
+	def update
 		@todo = Todoo.find(params[:id])
 
 		if @todo.update_attribute(:done, true)
